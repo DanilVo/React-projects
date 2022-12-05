@@ -4,7 +4,7 @@ import PetInfo from './components/PetInfo';
 function App() {
   return (
     <div className="App">
-      <PetInfo animal="dog" age={5} hasPet={true} />
+      <PetInfo animal="dog" age={6} hasPet />
       <PetInfo animal="cat" age={7} hasPet={false} />
     </div>
   );
