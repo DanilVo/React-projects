@@ -2,3 +2,25 @@
   text-align: center;
 }
 
+img {
+  border-radius: 12px;
+  box-shadow: 5px 5px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card {
+  width: 250px;
+  border: 1px lightgray solid;
+  margin: 15px;
+  padding-bottom: 10px;
+}
+
+.card > img {
+  width: 100%;
+}
