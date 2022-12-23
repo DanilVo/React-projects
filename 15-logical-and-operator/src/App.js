@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Button from "./components/Button";
 import Counter from "./components/Counter";
+import ResetButton from "./components/resetButton";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,6 +22,7 @@ function App() {
       <Button onClick={incrementCount} />
       <Button onClick={incrementCount} />
       <Button onClick={incrementCount} />
+      <ResetButton style={buttonStyle} resetCount={resetCount} count={count} />
       
     </div>
   );

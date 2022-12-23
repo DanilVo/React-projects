@@ -5,7 +5,7 @@ console.log(styles);
 
 function Info() {
   return (
-    <div className="">
+    <div className={styles.info}>
       <h1>Hello from the info component</h1>
       <button className="my-button">Click me</button>
     </div>
