@@ -1,11 +1,22 @@
-import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import './App.css';
-import TodoForm from './components/Todos/TodoForm';
-import TodoList from './components/Todos/TodoList';
+import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import "./App.css";
+import TodoForm from "./components/Todos/TodoForm";
+import TodoList from "./components/Todos/TodoList";
+import TodosActions from "./components/Todos/TodosActions";
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [deleteButtonStatus, setDeleteButtonStatus] = useState(true)
+
+  useEffect(() => {
+    if (todos.some((todo) => todo.isCompleted)) {
+      setDeleteButtonStatus(false)
+    } else {
+      setDeleteButtonStatus(true)
+    }
+  },[todos])
+
   const addTodoHandler = (text) => {
     const newTodo = {
       text,
@@ -29,10 +40,27 @@ function App() {
     );
   };
 
+  const resetTodosHandler = () => {
+    setTodos([]);
+  };
+
+  const deletCompletedTodosHandler = () => {
+    setTodos(todos.filter((todo) => !todo.isCompleted));
+  };
+
+  const completedTodosCount = todos.filter()
+
   return (
     <div className="App">
       <h1>Todo App</h1>
       <TodoForm addTodo={addTodoHandler} />
+      {!!todos.length && (
+        <TodosActions
+          resetTodos={resetTodosHandler}
+          deleteCompletedTodos={deletCompletedTodosHandler}
+          deleteButtonStatus={deleteButtonStatus}
+        />
+      )}
       <TodoList
         todos={todos}
         deleteTodo={deleteTodoHandler}
