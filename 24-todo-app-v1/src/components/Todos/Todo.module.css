@@ -15,3 +15,9 @@
   width: 100%;
   text-align: left;
 }
+
+.reactIcon {
+  font-size: 1.8rem;
+  color: teal;
+  margin-right: 10px;
+}
