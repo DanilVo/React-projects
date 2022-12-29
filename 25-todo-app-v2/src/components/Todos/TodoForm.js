@@ -1,14 +1,17 @@
-import { useState } from 'react';
-import styles from './TodoForm.module.css';
+import { useState } from "react";
+import styles from "./TodoForm.module.css";
+import Button from "../UI/Button";
 
 function TodoForm(props) {
   const { addTodo } = props;
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const onSubmiteHandler = (event) => {
     event.preventDefault();
     addTodo(text);
-    setText('');
+    setText("");
+
   };
+
   return (
     <div className={styles.todoFormContainer}>
       <form onSubmit={onSubmiteHandler}>
@@ -18,7 +21,9 @@ function TodoForm(props) {
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
-        <button type="submit">Submite</button>
+        <Button title="Submit" type="submit" disabled={!text.length}>
+          Submit
+        </Button>
       </form>
     </div>
   );

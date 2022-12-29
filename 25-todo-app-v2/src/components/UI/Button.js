@@ -1,11 +1,12 @@
-import styles from './Button.module.css'
+import styles from "./Button.module.css";
 
-function Button({ onClick, children, title, isDisabled }) {
+function Button(props) {
+  const { children, disabled } = props;
   return (
-    <button className={styles.button} onClick={onClick} title={title} disabled={isDisabled}>
+    <button {...props} className={styles.button} disabled={disabled}>
       {children}
     </button>
   );
 }
 
-export default Button
+export default Button;

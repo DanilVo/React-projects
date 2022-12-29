@@ -7,15 +7,15 @@ import TodosActions from "./components/Todos/TodosActions";
 
 function App() {
   const [todos, setTodos] = useState([]);
-  const [deleteButtonStatus, setDeleteButtonStatus] = useState(true)
+  const [deleteButtonStatus, setDeleteButtonStatus] = useState(true);
 
   useEffect(() => {
     if (todos.some((todo) => todo.isCompleted)) {
-      setDeleteButtonStatus(false)
+      setDeleteButtonStatus(false);
     } else {
-      setDeleteButtonStatus(true)
+      setDeleteButtonStatus(true);
     }
-  },[todos])
+  }, [todos]);
 
   const addTodoHandler = (text) => {
     const newTodo = {
@@ -48,7 +48,7 @@ function App() {
     setTodos(todos.filter((todo) => !todo.isCompleted));
   };
 
-  const completedTodosCount = todos.filter()
+  const completedTodosCount = todos.filter((todo) => todo.isCompleted).length;
 
   return (
     <div className="App">
@@ -66,6 +66,13 @@ function App() {
         deleteTodo={deleteTodoHandler}
         toggleTodo={toggleTodoHandler}
       />
+      <h2>
+        {completedTodosCount > 0
+          ? `You have completed ${completedTodosCount} ${
+              completedTodosCount > 1 ? "todos" : "todo"
+            }!`
+          : ""}
+      </h2>
     </div>
   );
 }
