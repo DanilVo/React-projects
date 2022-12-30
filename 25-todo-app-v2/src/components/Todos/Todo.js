@@ -1,8 +1,9 @@
 import styles from './Todo.module.css';
 import { RiTodoFill, RiDeleteBin2Line } from 'react-icons/ri';
+import { AiOutlineEdit } from "react-icons/ai";
 import { FaCheck } from 'react-icons/fa';
 
-function Todo({ todo, deleteTodo, toggleTodo }) {
+function Todo({ todo, deleteTodo, toggleTodo, editTodo }) {
   return (
     <div
       className={`${styles.todo} ${todo.isCompleted ? styles.completedTodo : ''}`}
@@ -17,6 +18,7 @@ function Todo({ todo, deleteTodo, toggleTodo }) {
         className={styles.checkIcon}
         onClick={() => toggleTodo(todo.id)}
       />
+      <AiOutlineEdit className={styles.checkIcon} onClick={() => editTodo()}/>
     </div>
   );
 }

@@ -40,6 +40,10 @@ function App() {
     );
   };
 
+  const editTodoHandler = () => {
+    setTodos(<input></input>)
+  }
+
   const resetTodosHandler = () => {
     setTodos([]);
   };
@@ -65,6 +69,7 @@ function App() {
         todos={todos}
         deleteTodo={deleteTodoHandler}
         toggleTodo={toggleTodoHandler}
+        editTodo={editTodoHandler}
       />
       <h2>
         {completedTodosCount > 0

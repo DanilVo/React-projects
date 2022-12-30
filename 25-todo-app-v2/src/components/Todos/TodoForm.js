@@ -9,7 +9,6 @@ function TodoForm(props) {
     event.preventDefault();
     addTodo(text);
     setText("");
-
   };
 
   return (
