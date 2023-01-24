@@ -41,8 +41,8 @@ function App() {
   };
 
   const editTodoHandler = () => {
-    setTodos(<input></input>)
-  }
+    console.log(todos.filter((todo) => todo["text"]));
+  };
 
   const resetTodosHandler = () => {
     setTodos([]);
